@@ -1,0 +1,60 @@
+{
+    "name": "mawdoo3/drsk.announcement",
+    "type": "library",
+    "description": "Mawdoo3 Drsk Announcements.",
+    "keywords": [
+        "Darsk",
+        "Announcement",
+        "e-learning"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.2.5",
+        "fideloper/proxy": "^4.2",
+        "guzzlehttp/guzzle": "^6.3",
+        "laravel/framework": "^7.0"
+    },
+    "require-dev": {
+        "facade/ignition": "^2.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mawdoo3\\Drsk\\Announcement\\DrskAnnouncementServiceProvider"
+            ],
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Mawdoo3\\Drsk\\Announcement\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan vendor:publish --provider='Mawdoo3\\Drsk\\Announcement\\DrskAnnouncementServiceProvider'"
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php artisan vendor:publish --provider='Mawdoo3\\Drsk\\Announcement\\DrskAnnouncementServiceProvider'"
+        ]
+    }
+}
