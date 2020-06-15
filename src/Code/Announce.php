@@ -21,6 +21,7 @@ class Announce
             'school_id' => 1,
             'parent_ids' => 1,
         ];
+        
     }
 
     
@@ -97,7 +98,7 @@ class Announce
     {
         return Inbox::where('recirver_id', $this->user->id)->orderBy('read')->get()->toArray() ?? [];
     }
-    
+
     /**
      * mark all notifications as read
      *
