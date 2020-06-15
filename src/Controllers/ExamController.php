@@ -17,7 +17,7 @@ class ExamController extends Controller
      */
     public function testRoute(Request $request)
     {
-        return (new Announce)->forSchool((object)[
+        return (new Announce)->forStudents((object)[
             'title' => 'title 1 ',
             'body' => 'body data',
             ]);
