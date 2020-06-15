@@ -1,10 +1,10 @@
 <?php
-namespace Mawdoo3\Drsk\Core;
+namespace Mawdoo3\Drsk\Announcement;
 
 use Illuminate\Support\ServiceProvider;
-use Mawdoo3\Drsk\Core\CoreInstall;
+use Mawdoo3\Drsk\Announcement\AnnouncementInstall;
 
-class DrskCoreServiceProvider extends ServiceProvider
+class DrskAnnouncementServiceProvider extends ServiceProvider
 {
 
     /**
@@ -16,9 +16,9 @@ class DrskCoreServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__ . '/Routes/web.php');
         // $this->loadViewsFrom(__DIR__ . '/Views', 'task');
-        // $this->loadMigrationsFrom(__DIR__ . '/Migration');
+        $this->loadMigrationsFrom(__DIR__ . '/Migration');
         if ($this->app->runningInConsole()) {
-            $this->commands([CoreInstall::class]);
+            $this->commands([AnnouncementInstall::class]);
         }
 
     }

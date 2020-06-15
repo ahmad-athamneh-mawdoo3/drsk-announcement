@@ -1,11 +1,11 @@
 <?php
 
-namespace Mawdoo3\Drsk\Core\Controllers;
+namespace Mawdoo3\Drsk\Announcement\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use \Mawdoo3\Drsk\Core\Models\SavedResult;
-use Mawdoo3\Drsk\Core\Auth;
+use \Mawdoo3\Drsk\Announcement\Models\SavedResult;
+use Mawdoo3\Drsk\Announcement\Announce;
 class ExamController extends Controller
 {
     /**
@@ -17,6 +17,9 @@ class ExamController extends Controller
      */
     public function testRoute(Request $request)
     {
-        return Auth::isAuthed('ahmad');
+        return (new Announce)->forSchool((object)[
+            'title' => 'title 1 ',
+            'body' => 'body data',
+            ]);
     }
 }

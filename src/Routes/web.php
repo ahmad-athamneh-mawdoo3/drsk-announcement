@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('test.core', 'Mawdoo3\Drsk\Core\Controllers\ExamController@testRoute')->name('test.core');
+\Auth::loginUsingId(1);
+Route::get('test.announcement', 'Mawdoo3\Drsk\Announcement\Controllers\ExamController@testRoute')->name('test.announcement');
 
 
