@@ -28,5 +28,4 @@ tests/
 .env.example
 .gitattributes
 .styleci.yml
-README.md
 webpack.mix.js
